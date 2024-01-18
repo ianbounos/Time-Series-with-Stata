@@ -18,7 +18,7 @@ tsset Time
  label variable MB  "Monetary base var." 
  
  ** here, we visualize the variables
- tsline Inflation, yline(0)
+ tsline Inflation, yline(0) title("Inflation")
  tsline CPI, yline(0)
  tsline TCO, yline(0)
  tsline MB, yline(0)
@@ -35,9 +35,38 @@ tsset Time
  
  *I drop the last line because it is an atypical situation (unprecedented depreciation of the currency). 
 drop in 84
+drop in 83
 drop in 1
 
 twoway tsline  TCOvar || tsline CCLvar  || tsline Inflation
+
+
+
+
+***************************************************************
+*********** ARIMA over dependent variable *********************
+***************************************************************
+
+*** first, we take out the trend of d.Inflation
+regress Inflation Time 
+predict yhat, xb
+gen Inflaton_woTrend = Inflation - yhat
+ 
+*** We check that it is stationary. So, inflation is I(1) 
+dfuller  Inflaton_woTrend, regress
+twoway tsline Inflaton_woTrend || tsline Inflation
+
+*** plot correlograms 
+twoway ac Inflaton_woTrend || pac Inflaton_woTrend
+
+corrgram Inflaton_woTrend
+
+** we conclude that we have a "detrended" ARIMA 1 0 0 
+arima Inflaton_woTrend, arima(1,0,0) 
+predict  Inflaton_woTrend_resid, residuals
+corrgram Inflaton_woTrend_resid
+tsline Inflaton_woTrend_resid
+
 
 
 
@@ -51,13 +80,11 @@ twoway tsline  TCOvar || tsline CCLvar  || tsline Inflation
  dfuller Inflation, trend regress 
  *controlling by time it is stationary if we take a critical value of 10%. That imply that we should include time in regression
  
- dfuller d.Inflation, regress
- tsline d.Inflation, yline(0)
  
 
  dfuller TCOvar, regress
  dfuller CCLvar, regress
- dfuller MBvar
+ dfuller MBvar, regress
 * They all seem to be stationary.
 
 
@@ -66,15 +93,16 @@ twoway tsline  TCOvar || tsline CCLvar  || tsline Inflation
  regress Inflation CCLvar TCOvar MBvar l.Inflation ExcRestrictions Time 
  regress Inflation CCLvar TCOvar l.Inflation ExcRestrictions Time 
  regress Inflation TCOvar l.Inflation ExcRestrictions Time 
+ 
+ 
+ *** we analyse residuals and everything seems to be ok.
+ dwstat
+ predict residues1, residuals
+ 
+ tsline residues1
+ corrgram residues1
 
 
-**** we have very similar results if we differenciate (in case we wan lower alphas in dickey fuller test)
- regress d.Inflation CCLvar TCOvar MBvar l.Inflation ExcRestrictions Time 
- regress d.Inflation CCLvar TCOvar l.Inflation ExcRestrictions Time 
- regress d.Inflation TCOvar l.Inflation ExcRestrictions Time 
- 
- 
- 
  ***MODEL 2 *************************
 *************************************
 *** Dickey fuller test **************
@@ -110,13 +138,7 @@ dfuller d.LogCPI, trend regress
  regress d.LogCPI d.LogTCO Time L.d.LogCPI ExcRestrictions
 
 ** the results are consistent with the previous model
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
