@@ -1,7 +1,7 @@
  ** first, we import the data
  
 clear
-import excel "C:\Users\fcslab18\Downloads\dataset Ian.xlsx", sheet("Planilha1") firstrow clear
+import excel "C:\Users\fcslab18\Downloads\Week1_Dataset_Inflation.xlsx", sheet("Planilha1") firstrow clear
 
 ** we define and set the temporal variable
 replace Time = ym(year,month)
