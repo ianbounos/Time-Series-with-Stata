@@ -57,7 +57,6 @@ dfuller  Inflaton_woTrend, regress
 twoway tsline Inflaton_woTrend || tsline Inflation
 
 *** plot correlograms 
-twoway ac Inflaton_woTrend || pac Inflaton_woTrend
 
 corrgram Inflaton_woTrend
 
@@ -67,7 +66,19 @@ predict  Inflaton_woTrend_resid, residuals
 corrgram Inflaton_woTrend_resid
 tsline Inflaton_woTrend_resid
 
+** calculate AIC and BIC
+estat ic
 
+
+** lets compare with other models 
+arima Inflaton_woTrend, arima(1,0,1) 
+estat ic
+
+arima Inflaton_woTrend, arima(2,0,0) 
+estat ic
+
+arima Inflaton_woTrend, arima(1,0,1) 
+estat ic
 
 
 ***MODEL 1 *************************
@@ -138,6 +149,10 @@ dfuller d.LogCPI, trend regress
  regress d.LogCPI d.LogTCO Time L.d.LogCPI ExcRestrictions
 
 ** the results are consistent with the previous model
+
+
+
+
 
 
 
