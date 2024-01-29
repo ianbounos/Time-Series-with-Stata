@@ -14,5 +14,5 @@ The fundamental concepts of time series are applied, such as Dickey Fuller stati
 We extend the concepts from the previous week to cross-section time series, allowing the analysis to include the time series of different countries. To illustrate, we descriptively study the intertemporal link between inflation and exchange rate in Argentina, Brazil, Chile, and Colombia between January 2017 and November 2023. Additionally, we include multiple versions of unit root tests.
 
 
-* [Slides on Time Series Applications to Inflation in Argentina (2017-2023)](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_2_Introduction_to_cross_section_time_series__Inflation_and_Exchange_Rate.pdf)
-* [Stata do-file for inflation analysis](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week2_Cross-section_Times_Series_Inflation.do)
+* [Slides on Cross-section Time Series Applications to Inflation in Latin America (2017-2023)](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_2_Introduction_to_cross_section_time_series__Inflation_and_Exchange_Rate.pdf)
+* [Stata do-file for analysis](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week2_Cross-section_Times_Series_Inflation.do)
