@@ -15,4 +15,4 @@ We extend the concepts from the previous week to cross-section time series, allo
 
 
 * [Slides on Time Series Applications to Inflation in Argentina (2017-2023)](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_2_Introduction_to_cross_section_time_series__Inflation_and_Exchange_Rate.pdf)
-* [Stata do-file for inflation analysis](_https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week2_Cross-section_Times_Series_Inflation.do)
+* [Stata do-file for inflation analysis](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week2_Cross-section_Times_Series_Inflation.do)
