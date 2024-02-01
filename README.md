@@ -16,3 +16,10 @@ We extend the concepts from the previous week to cross-section time series, allo
 
 * [Slides on Cross-section Time Series Applications to Inflation in Latin America (2017-2023)](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_2_Introduction_to_cross_section_time_series__Inflation_and_Exchange_Rate.pdf)
 * [Stata do-file for analysis](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week2_Cross-section_Times_Series_Inflation.do)
+
+## Third week: Cross-section time series. Modelling.
+
+We attempted to address, through modeling, the question that arose last week of whether the link between exchange rate and inflation is statistically different in Argentina or if the graphical results are due to spurious reasons. We hypothesized about the causes of this difference
+
+* [Slides on Cross-section Time Series Applications to Inflation and Exchange Rate in Latin America (2017-2023)](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_3_Cross_section_time_series__Inflation_and_Exchange_Rate.pdf)
+* [Stata do-file for analysis](https://github.com/ianbounos/Time-Series-with-Stata/blob/main/Week_3_Cross_section_time_series__Inflation_and_Exchange_Rate.do)
